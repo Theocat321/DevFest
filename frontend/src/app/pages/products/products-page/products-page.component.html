@@ -1,0 +1,17 @@
+<app-nav-links></app-nav-links>
+<section id="products-page">
+    <h1>Products</h1>
+    <div class="products-container">
+        <div *ngFor="let item of products">
+            <app-product-item
+            [product_id]="item['product_id']"
+            [title]="item['title']"
+            [description]="item['description']"
+            [cost_per_unit]="item['cost_per_unit']"
+            [unit_name]="item['unit_name']"
+            [sourced_country]="item['sourced_country']"
+            [warehouse_location]="item['warehouse_location']"
+            ></app-product-item>
+        </div>
+    </div>
+</section>

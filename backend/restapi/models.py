@@ -18,7 +18,7 @@ class Product(models.Model):
     product_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
-    cost_per_unit = models.IntegerField()
+    cost_per_unit = models.FloatField()
     unit_name = models.CharField(max_length=100)
     sourced_country = models.CharField(max_length=100)
     warehouse_location = models.CharField(max_length=100)
@@ -51,7 +51,7 @@ class BasketItem(models.Model):
     product_id= models.ForeignKey(Product, on_delete=models.CASCADE)
     basket_id= models.ForeignKey(Basket, on_delete=models.CASCADE)
     quantity= models.IntegerField()
-    cost= models.IntegerField()
+    cost= models.FloatField()
     confirmed_item= models.BooleanField()
     user_added= models.CharField(max_length=1000)
 

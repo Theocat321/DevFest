@@ -12,6 +12,9 @@ import { HowItWorksComponent } from './pages/index/how-it-works/how-it-works.com
 import { InstructionCirclesComponent } from './pages/index/how-it-works/instruction-circles/instruction-circles.component';
 import { FinalCallToActionComponent } from './pages/index/final-call-to-action/final-call-to-action.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProductsPageComponent } from './pages/products/products-page/products-page.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ProductItemComponent } from './pages/products/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +27,14 @@ import { FooterComponent } from './footer/footer.component';
     HowItWorksComponent,
     InstructionCirclesComponent,
     FinalCallToActionComponent,
-    FooterComponent
+    FooterComponent,
+    ProductsPageComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

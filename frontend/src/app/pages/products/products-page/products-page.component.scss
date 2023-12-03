@@ -1,0 +1,14 @@
+@import 'src/vars';
+
+#products-page{
+    text-align: center;
+}
+
+.products-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
