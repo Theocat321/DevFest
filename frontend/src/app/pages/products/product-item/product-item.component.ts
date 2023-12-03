@@ -23,4 +23,5 @@ export class ProductItemComponent {
   @Input() unit_name!:string;
   @Input() sourced_country!:string;
   @Input() warehouse_location!:string;
+  @Input() image_url!:string;
 }

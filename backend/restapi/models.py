@@ -14,6 +14,7 @@ class Product(models.Model):
     unit_name: what the unit is called on the website
     sourced_country: where the item is sourced
     warehouse_location: where the item is stored
+    image_url: url of the image to display
     '''
     product_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
@@ -22,6 +23,7 @@ class Product(models.Model):
     unit_name = models.CharField(max_length=100)
     sourced_country = models.CharField(max_length=100)
     warehouse_location = models.CharField(max_length=100)
+    image_url = models.URLField()
 
 class Basket(models.Model):
     '''

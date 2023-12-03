@@ -1,7 +1,9 @@
 <app-nav-links></app-nav-links>
 <section class="single-product-section page-size" *ngIf="valid_id">
     <div>
-        <div style="height: 20vw;width: 20vw;background-color: black;"></div>
+        <div class="image-container">
+            <img src="{{product_info['image_url']}}">
+        </div>
     </div>
     <div class="info-side">
         <h2>{{product_info['title']}}</h2>

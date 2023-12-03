@@ -18,5 +18,6 @@ class ProductSerializer(serializers.ModelSerializer):
             "cost_per_unit",
             "unit_name",
             "sourced_country",
-            "warehouse_location"
+            "warehouse_location",
+            "image_url"
         ]

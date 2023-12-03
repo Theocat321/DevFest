@@ -10,3 +10,14 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.image-container{
+    max-height: 15vh;
+    max-width: 15vh;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+}
