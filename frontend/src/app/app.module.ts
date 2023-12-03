@@ -17,6 +17,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProductItemComponent } from './pages/products/product-item/product-item.component';
 import { SingleProductPageComponent } from './pages/single-product/single-product-page/single-product-page.component';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { OurMissionPageComponent } from './pages/our-mission/our-mission-page/our-mission-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     ProductsPageComponent,
     ProductItemComponent,
-    SingleProductPageComponent
+    SingleProductPageComponent,
+    OurMissionPageComponent
   ],
   imports: [
     BrowserModule,

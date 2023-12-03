@@ -1,0 +1,33 @@
+@import 'src/vars';
+
+.our-mission-container{
+    padding-inline: 10vw;
+}
+
+.mission-row{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.image-left{
+    grid-template-columns: 1fr 2fr;
+}
+
+.image-right{
+    grid-template-columns: 2fr 1fr;
+}
+
+.mission-image-container{
+    height: 50vh;
+    width: 50vh;
+
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+}
