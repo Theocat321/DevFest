@@ -1,0 +1,25 @@
+
+nav{
+    // Nav bar container
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 100vw;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.fa {
+    // Social media icons
+    padding: 5px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: grey;
+    transition: 0.5s;
+}
+
+.fa:hover{
+    color: black;
+}

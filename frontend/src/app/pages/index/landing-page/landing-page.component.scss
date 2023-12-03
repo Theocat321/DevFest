@@ -1,0 +1,18 @@
+
+#landing-page{
+    height: 80vh;
+    background-image: url("https://d1qq9lwf5ow8iz.cloudfront.net/live-images-1/ImageDetail_2670d6e8-738b-47fd-9340-78758e4f40d2_Large");
+    background-color: var(--third-color);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#masthead{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+    text-shadow: 1px 1px #000000;
+}

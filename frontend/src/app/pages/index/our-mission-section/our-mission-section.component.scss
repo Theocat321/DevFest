@@ -1,0 +1,37 @@
+@import "src/vars";
+
+#our-mission{
+    height: 70vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#image-container{
+    background-color: var(--third-color);
+    height: 50vh;
+    width: 50vh;
+
+    img{
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.call-to-action{
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+#mission-contents{
+    padding-right: 15vw;
+
+    h3{
+        font-size: var(--step-1);
+        margin: 0;
+    }
+}

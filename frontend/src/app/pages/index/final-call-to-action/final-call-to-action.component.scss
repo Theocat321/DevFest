@@ -1,0 +1,21 @@
+@import "src/vars";
+
+#final-call-to-action{
+    display: flex;
+    height: 50vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.call-to-action{
+    display: block;
+    width: 15vw;
+    height: 5vh;
+    text-align: center;
+}
+
+h2{
+    font-size: var(--step-2);
+}

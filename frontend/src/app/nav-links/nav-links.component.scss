@@ -1,0 +1,21 @@
+@import "src/vars";
+
+
+#nav-links{
+    height: 7.5vh;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#links-container{
+    display: flex;
+    width: 40vw;
+    align-items: center;
+    justify-content: space-around;
+}
+
+a{
+    font-size: var(--step-0);
+}
