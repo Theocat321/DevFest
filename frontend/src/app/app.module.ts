@@ -15,6 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductsPageComponent } from './pages/products/products-page/products-page.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProductItemComponent } from './pages/products/product-item/product-item.component';
+import { SingleProductPageComponent } from './pages/single-product/single-product-page/single-product-page.component';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { ProductItemComponent } from './pages/products/product-item/product-item
     FinalCallToActionComponent,
     FooterComponent,
     ProductsPageComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    SingleProductPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

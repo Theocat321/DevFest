@@ -1,0 +1,30 @@
+<app-nav-links></app-nav-links>
+<section class="single-product-section page-size" *ngIf="valid_id">
+    <div>
+        <div style="height: 20vw;width: 20vw;background-color: black;"></div>
+    </div>
+    <div class="info-side">
+        <h2>{{product_info['title']}}</h2>
+        <p>{{product_info['description']}}</p>
+        <p>Key Info:</p>
+        <p>Sourced: {{product_info['sourced_country']}}</p>
+        <p>Warehouse: {{product_info['warehouse_location']}}</p>
+        <p>Pricing:</p>
+        <p>£{{product_info['cost_per_unit']}} per {{product_info['unit_name']}}</p>
+        <!-- TODO: form endpoint -->
+        <form [formGroup]="quantityForm" (ngSubmit)="onSubmit()">
+            <div>
+            <label for="qt">
+                Quantity
+            </label><br>
+            <input class="input-box" id="qt" type="text" formControlName="qt">
+            </div>
+            <button class="button" type="submit">Add to shared basket</button>  
+        </form>
+    </div>
+</section>
+<!-- If the Id in the url isnt valid -->
+<section *ngIf="!valid_id" class="page-size error-page">
+    <h2>Whoops!</h2>
+    <p>This item {{product_id}} doesn't exist</p>
+</section>

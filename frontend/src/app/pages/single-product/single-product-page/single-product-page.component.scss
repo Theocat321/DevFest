@@ -1,0 +1,47 @@
+@import 'src/vars';
+
+.page-size{
+    min-height: 80vh;
+}
+
+
+.single-product-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.error-page{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+// Right hand side
+.info-side{
+    margin-right: 10vw;
+}
+
+.input-box{
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    margin-top: 7.5px;
+}
+
+.button{
+    background-color: var(--third-color); /* Green */
+    border: none;
+    color: black;
+    border-radius: 5px;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;  
+    cursor: pointer;  
+    margin-top: 7.5px;
+}
