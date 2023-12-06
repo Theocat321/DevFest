@@ -13,11 +13,13 @@ import { InstructionCirclesComponent } from './pages/index/how-it-works/instruct
 import { FinalCallToActionComponent } from './pages/index/final-call-to-action/final-call-to-action.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsPageComponent } from './pages/products/products-page/products-page.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ProductItemComponent } from './pages/products/product-item/product-item.component';
 import { SingleProductPageComponent } from './pages/single-product/single-product-page/single-product-page.component';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { OurMissionPageComponent } from './pages/our-mission/our-mission-page/our-mission-page.component';
+import { CartComponent } from './cart/cart.component';
+import { FingerprintjsProAngularModule } from '@fingerprintjs/fingerprintjs-pro-angular';
 
 @NgModule({
   declarations: [
@@ -34,13 +36,20 @@ import { OurMissionPageComponent } from './pages/our-mission/our-mission-page/ou
     ProductsPageComponent,
     ProductItemComponent,
     SingleProductPageComponent,
-    OurMissionPageComponent
+    OurMissionPageComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FingerprintjsProAngularModule.forRoot({
+      loadOptions: {
+        apiKey: "cdpOFSivlm7ENYkUjoX2",
+        region: "eu"
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

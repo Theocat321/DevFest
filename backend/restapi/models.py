@@ -29,14 +29,13 @@ class Basket(models.Model):
     '''
     Defining the basket table
 
-    basket_id = unique basket ID field
-    pin: 8 digit pin
+    pin: unique 8 digit pin
     host: Host id
     end_date_time: end date time for the basket
     '''
-    basket_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    pin= models.BigIntegerField(default=00000000)
+    pin= models.BigIntegerField(default=00000000,primary_key=True)
     host= models.CharField(max_length=1000, default="")
+    pw = models.CharField(max_length=10000)
     end_date_time= models.DateTimeField(default=timezone.now, blank=True)
 
 class BasketItem(models.Model):
@@ -44,14 +43,14 @@ class BasketItem(models.Model):
     Defining the basketItems link table
 
     product_id:  Forgien key to Product table
-    basket_id: Forgien key to Basket table
+    pin: Forgien key to Basket table
     quantity: Quantity of items in the order
     cost: Price of this quantity of items
     confirmed_item: Whether item is confirmed or pending
     user_added: User id for who added it
     '''
-    product_id= models.ForeignKey(Product, on_delete=models.CASCADE)
-    basket_id= models.ForeignKey(Basket, on_delete=models.CASCADE)
+    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    pin = models.ForeignKey(Basket, on_delete=models.CASCADE)
     quantity= models.IntegerField()
     cost= models.FloatField()
     confirmed_item= models.BooleanField()

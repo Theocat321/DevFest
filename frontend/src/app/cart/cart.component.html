@@ -1,0 +1,49 @@
+<a class="fa fa-shopping-basket" (click)="toggleOpen()"></a>
+<div class="basket-container" [class.hidden]="!isOpen">
+    <!-- Contents for the non active basket -->
+    <div [class.hidden]="activeBasket">
+        <p>No Active Basket</p>
+        <!-- Join a basket -->
+        <!-- Form for joining basket -->
+        <form [formGroup]="joinForm" (ngSubmit)="submitJoinBasket()">
+            <div>
+                <label for="pin">
+                    Pin
+                </label><br>
+                <input class="input-box" id="pin" type="text" formControlName="pin" placeholder="00000000" required [class.validInput]="JoinPin.valid" [class.invalidInput]="JoinPin.invalid && (JoinPin.dirty || JoinPin.touched)">
+            </div>
+            <div>
+                <label for="pw">
+                    Password
+                </label><br>
+                <input class="input-box" id="pw" type="password" formControlName="pw" required [class.validInput]="JoinPW.valid" [class.invalidInput]="JoinPW.invalid && (JoinPW.dirty || JoinPW.touched)">
+            </div>
+            <button class="button" type="submit">Join Group Basket</button>  
+        </form>
+
+        <h2>OR</h2>
+        <!-- Generate a new basket -->
+        <!-- Form for generating basket -->
+        <form [formGroup]="generateForm" (ngSubmit)="submitGenerateBasket()">
+            <div>
+                <label for="dt">
+                    Date/Time
+                </label><br>
+                <input class="input-box" id="dt" type="text" formControlName="dt" required [class.validInput]="GenDate.valid" [class.invalidInput]="GenDate.invalid && (GenDate.dirty || GenDate.touched)">
+            </div>
+            <div>
+                <label for="pw">
+                    Password
+                </label><br>
+                <input class="input-box" id="pw" type="password" formControlName="pw" required [class.validInput]="GenPW.valid" [class.invalidInput]="GenPW.invalid && (GenPW.dirty || GenPW.touched)">
+            </div>
+            <button class="button" type="submit">Generate Basket</button>  
+        </form>
+    </div>
+    <!-- Contents for the active basket -->
+    <div [class.hidden]="!activeBasket">
+        <p>Active Basket: {{basketPin}}</p>
+
+    </div>
+
+</div>

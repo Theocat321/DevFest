@@ -1,0 +1,30 @@
+@import 'src/vars';
+
+a{
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
+
+.basket-container{
+    position: absolute;
+    height: auto;
+    min-height: 100px;
+    width: 250px;
+    right: 20px;
+    background-color: var(--third-color);
+
+    -webkit-box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.75);
+}
+
+.invalidInput{
+    border-color: red;
+}
+
+.validInput{
+    border-color: grey;
+}

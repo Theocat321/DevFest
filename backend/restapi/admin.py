@@ -15,11 +15,11 @@ class BasketAdmin(admin.ModelAdmin):
     '''
     Adds the Basket table to the admin page
     '''
-    list_display = "basket_id","pin"
+    list_display ="pin","host"
 
 @admin.register(BasketItem)
 class BasketItemsAdmin(admin.ModelAdmin):
     '''
     Adds the BasketItems link table to the admin page
     '''
-    list_display = "product_id","basket_id"
+    list_display = "product_id","quantity"
