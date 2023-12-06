@@ -13,13 +13,12 @@
         <p>Warehouse: {{product_info['warehouse_location']}}</p>
         <p>Pricing:</p>
         <p>£{{product_info['cost_per_unit']}} per {{product_info['unit_name']}}</p>
-        <!-- TODO: form endpoint -->
         <form [formGroup]="quantityForm" (ngSubmit)="onSubmit()">
             <div>
             <label for="qt">
                 Quantity
             </label><br>
-            <input class="input-box" id="qt" type="text" formControlName="qt">
+            <input class="input-box" id="qt" type="text" formControlName="qt" required [class.validInput]="quantity.valid" [class.invalidInput]="quantity.invalid && (quantity.dirty || quantity.touched)">
             </div>
             <button class="button" type="submit">Add to shared basket</button>  
         </form>

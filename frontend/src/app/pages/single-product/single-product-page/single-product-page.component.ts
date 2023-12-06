@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { BrowserDetailsService } from 'src/app/services/browser-details.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -15,8 +16,11 @@ export class SingleProductPageComponent implements OnInit{
   public valid_id:boolean = false;
 
   quantityForm = this.formBuilder.group({
-    qt: '',
+    qt:  new FormControl("", [Validators.required]),
   });
+
+  get quantity() { return this.quantityForm.get('qt')!; }
+
 
   constructor(private route: ActivatedRoute, private ProductsClient:ProductsService,private formBuilder: FormBuilder,) {}
 
@@ -35,11 +39,15 @@ export class SingleProductPageComponent implements OnInit{
       }
       console.log(this.product_info)
     })
+    console.log(this.product_info);
+    
   }
 
   onSubmit(): void {
-    // TODO: Check if basket open
-    // TODO: add to basket
+    // Ask service to add to basket
+    let quantityInt = parseInt(this.quantity.value!)
+    let costPerUnit = parseFloat(this.product_info['cost_per_unit'])
+    this.ProductsClient.addProductToBasket(this.product_id,quantityInt,costPerUnit);
     alert('Your items have been added to the basket');
     this.quantityForm.reset();
   }

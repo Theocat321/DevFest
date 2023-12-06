@@ -16,13 +16,39 @@ class GetAllProducts(generics.ListCreateAPIView):
     queryset = Product.objects.all() # Ignore the error - Django syntax - still works
     serializer_class = ProductSerializer
 
+@csrf_exempt
 def add_too_basket(req):
     '''Adding to the basket from request'''
     # Create new object with req info
+    body_unicode = req.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    # Check details are valid
+    
+    # Check if password and pin match
+    items = Basket.objects.all().filter(pin=body['pin']).filter(pw=body['pw']).values()# ignore error here
+    # If the item is not valid
+    if len(items) == 0:
+        return HttpResponseBadRequest("Pin and Password don't match")
 
-    # Push to table
+    # Get the product instance to save
+    current_product = Product.objects.all().filter(product_id=body['product_id'])
+
+    # Get the basket instance to save
+    current_basket = Basket.objects.all().filter(pin=body['pin'])
+
+    # If log in valid push to table
+    current_item = BasketItem(
+        product_id = current_product[0],
+        pin = current_basket[0],
+        quantity= body['quantity'],
+        cost= body['cost'],
+        confirmed_item= body['confirmed'],
+        user_added= body['user_added']
+    )
+    current_item.save()
 
     # return success
+    return JsonResponse({"":""})
 
 @csrf_exempt
 def new_basket(req):
