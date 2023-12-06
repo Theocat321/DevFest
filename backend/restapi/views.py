@@ -16,13 +16,6 @@ class GetAllProducts(generics.ListCreateAPIView):
     queryset = Product.objects.all() # Ignore the error - Django syntax - still works
     serializer_class = ProductSerializer
 
-def get_current_basket(req):
-    '''Using the incoming request find and return all items in basket'''
-    print(req)
-    # queryset = BasketItem.objects.filter()
-
-    # return the relevant items
-
 def add_too_basket(req):
     '''Adding to the basket from request'''
     # Create new object with req info
@@ -49,20 +42,25 @@ def new_basket(req):
 def join_basket(req):
     '''
     Checks details of current baskets to see if it matches
-    Returns 200 if the basket details match and the user can
-    join the basket
+    Returns 200 and basket contents if request params corrects
     '''
     body_unicode = req.body.decode('utf-8')
     body = json.loads(body_unicode)
     # only fetch code if both pin and pw present
     if 'pin' in body.keys() and 'pw' in body.keys():
-        print(body)
-        items = Basket.objects.all().filter(pin=body['pin']).filter(pw=body['pw'])# ignore error here
+        items = Basket.objects.all().filter(pin=body['pin']).filter(pw=body['pw']).values()# ignore error here
         # If the item is valid
         if len(items) == 0:
             return HttpResponseBadRequest("Pin and Password don't match")
+        # Get end time
+        end_date_time = items[0]['end_date_time']
         # Fetch item basket items
         basket_items = list(BasketItem.objects.all().filter(pin=body['pin']).values())
-        return JsonResponse({"data":basket_items})
+        # Couldnt get inner join to work- heuristic apporach now
+        for item in basket_items:
+            # Get the current product info and adds it into the basket item list
+            product_info = list(Product.objects.all().filter(product_id=item['product_id_id']).values()) # error is false
+            item['product_info'] = product_info[0]
+        return JsonResponse({"data":basket_items,'end_time':end_date_time})
     return HttpResponseBadRequest("Pin and Password don't match")
 

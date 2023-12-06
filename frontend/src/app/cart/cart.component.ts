@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { generate } from 'rxjs';
 import { BrowserDetailsService } from '../services/browser-details.service';
 import { FieldValidationService } from '../services/field-validation.service';
+import { BrowserStorageService } from '../services/browser-storage.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { FieldValidationService } from '../services/field-validation.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
-  isOpen = true;
+  isOpen = false;
   activeBasket = false;
 
   // Attributes for the current basket if there is one
@@ -18,7 +19,8 @@ export class CartComponent {
   basketExpire!:Date;
   basketItems!:any; // This will be replaced by a list
 
-  constructor(private formBuilder:FormBuilder, private browserDetails:BrowserDetailsService,private validationService:FieldValidationService){}
+  constructor(private formBuilder:FormBuilder, private browserDetails:BrowserDetailsService,
+              private validationService:FieldValidationService, private bStorage:BrowserStorageService){}
 
   // Initalising the forms
   joinForm = this.formBuilder.group({
@@ -79,9 +81,14 @@ export class CartComponent {
       console.warn("Error in creating basket");
     }
     else{
-      this.activeBasket = true
-      //TODO: logic for joining the basket
+      // Changing user state 
       this.basketPin = pin.toString()
+      this.activeBasket = true
+      // Setting session storage to current basket info
+      this.bStorage.setSessionStorage("current_basket_pin",pin.toString())
+      this.bStorage.setSessionStorage("current_basket_hash",hashedPW)
+      this.bStorage.setSessionStorage("current_basket_end",date)
+      // Fetch basket items
       this.fetchBasketItems(pin.toString(),hashedPW)
     }
   }
@@ -111,9 +118,15 @@ export class CartComponent {
     if (response.status != 200){
       console.warn("Error in joining basket");
     }else{
-      this.activeBasket = true;
-      // logic for showing the active basket items
+      let response_data = await response.json();
+      // Shows user basket 
       this.basketPin = pin
+      this.activeBasket = true;
+      // Setting session storage to current basket info
+      this.bStorage.setSessionStorage("current_basket_pin",pin.toString())
+      this.bStorage.setSessionStorage("current_basket_hash",hashedPW)
+      this.bStorage.setSessionStorage("current_basket_end",response_data['end_time'])
+      // Fetching basket information
       this.fetchBasketItems(pin,hashedPW)
     }
   }
@@ -121,6 +134,20 @@ export class CartComponent {
   // Open or close the basket
   public toggleOpen(){
     this.isOpen =  !this.isOpen
+    // When basket is open check if there are session storage and load appropriate basket
+    if (this.isOpen){
+      // Get session storage
+      let session_pin = this.bStorage.getSessionStorage("current_basket_pin")
+      let session_hash = this.bStorage.getSessionStorage("current_basket_hash")
+      // If there are details load the basket
+      if(session_hash != null && session_pin != null){
+        this.basketPin = session_pin
+        this.activeBasket = true;
+        this.fetchBasketItems(session_pin,session_hash)
+      }else{
+        this.activeBasket = false
+      }
+    }
   }
 
   public async fetchBasketItems(pin:string,hashedPW:string){
@@ -134,7 +161,10 @@ export class CartComponent {
     if (response.status != 200){
       console.warn("Error in fetching basket items");
     } else{       
-      this.basketItems =  await response.json();
+      let data =  await response.json();
+      this.basketItems = data['data']    
+      console.log(this.basketItems);
+        
     }
   }
 }

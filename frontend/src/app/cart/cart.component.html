@@ -41,9 +41,15 @@
         </form>
     </div>
     <!-- Contents for the active basket -->
-    <div [class.hidden]="!activeBasket">
+    <div class="active-basket" [class.hidden]="!activeBasket">
         <p>Active Basket: {{basketPin}}</p>
-
+        <div class="basketItemsContainer">
+            <div class="basketItem" *ngFor="let item of basketItems; index as i; first as isFirst">
+                <a href="/products/{{item['product_info']['product_id']}}">{{item['product_info']['title']}}</a>
+                <p>Qt: {{item['quantity']}}</p>
+                <p>£{{item['cost']}}</p>
+            </div>
+        </div>
     </div>
 
 </div>
