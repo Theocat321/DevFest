@@ -75,8 +75,6 @@ export class CartComponent {
       }),
       headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'} });
     // If the response is invalid
-    console.log(response.status);
-
     if(response.status != 200){
       console.warn("Error in creating basket");
     }
@@ -84,7 +82,7 @@ export class CartComponent {
       this.activeBasket = true
       //TODO: logic for joining the basket
       this.basketPin = pin.toString()
-      this.fetchBasketItems(pin.toString())
+      this.fetchBasketItems(pin.toString(),hashedPW)
     }
   }
 
@@ -109,18 +107,15 @@ export class CartComponent {
         pw:hashedPW
       }),
       headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'} });
-    // If invalid stop
-    console.log(response.status);
-    
+    // If invalid stop    
     if (response.status != 200){
       console.warn("Error in joining basket");
     }else{
       this.activeBasket = true;
       // logic for showing the active basket items
       this.basketPin = pin
-      this.fetchBasketItems(pin)
+      this.fetchBasketItems(pin,hashedPW)
     }
-
   }
 
   // Open or close the basket
@@ -128,14 +123,18 @@ export class CartComponent {
     this.isOpen =  !this.isOpen
   }
 
-  public async fetchBasketItems(pin:string){
+  public async fetchBasketItems(pin:string,hashedPW:string){
     const response = await fetch("/api/join_basket", {
       method: 'POST',
       body: JSON.stringify({
         pin: pin,
+        pw:hashedPW
       }),
-      headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'} });
-    console.log(response);
-    
+      headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'} });    
+    if (response.status != 200){
+      console.warn("Error in fetching basket items");
+    } else{       
+      this.basketItems =  await response.json();
+    }
   }
 }

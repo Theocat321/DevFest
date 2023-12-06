@@ -58,10 +58,11 @@ def join_basket(req):
     if 'pin' in body.keys() and 'pw' in body.keys():
         print(body)
         items = Basket.objects.all().filter(pin=body['pin']).filter(pw=body['pw'])# ignore error here
-        print(items)
         # If the item is valid
         if len(items) == 0:
             return HttpResponseBadRequest("Pin and Password don't match")
-        return JsonResponse({"":""})
+        # Fetch item basket items
+        basket_items = list(BasketItem.objects.all().filter(pin=body['pin']).values())
+        return JsonResponse({"data":basket_items})
     return HttpResponseBadRequest("Pin and Password don't match")
 
