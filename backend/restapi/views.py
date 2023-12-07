@@ -90,3 +90,27 @@ def join_basket(req):
         return JsonResponse({"data":basket_items,'end_time':end_date_time})
     return HttpResponseBadRequest("Pin and Password don't match")
 
+@csrf_exempt
+def update_pending_items(req):
+    '''Takes in a list from the request and updates the items to not be pending'''
+    body_unicode = req.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    if 'pin' in body.keys() and 'pw' in body.keys():
+        items = Basket.objects.all().filter(pin=body['pin']).filter(pw=body['pw']).values()# ignore error here
+        # If the item is valid
+        if len(items) == 0:
+            return HttpResponseBadRequest("Pin and Password don't match")
+        # Updating the confirmed value in basket items
+        product_to_update = body['updated_products']
+        user_id = body['user_added']
+        pin = body['pin']
+        for product in product_to_update:
+            current_id = product['product_id_id']
+            current_basket_item =  list(BasketItem.objects.all().filter(product_id=current_id).filter(user_added=user_id).filter(pin=pin))
+            current_basket_item = current_basket_item[0]
+            current_basket_item.confirmed_item = True
+            print(current_basket_item)
+            current_basket_item.save()
+        return JsonResponse({"":""})
+
+    return HttpResponseBadRequest("Pin and Password don't match")

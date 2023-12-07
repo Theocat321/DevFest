@@ -45,4 +45,29 @@ export class ProductsService {
       return true;
     }
   }
+
+  public async updatePendingToTrue(listOfConfirmed:any){
+    // Preprocessing
+    let pin = this.bStorage.getSessionStorage("current_basket_pin")
+    let pw = this.bStorage.getSessionStorage("current_basket_hash")
+    if(pin == null || pw == null){
+      console.warn("User not in basket");
+      return false;
+    }
+    let browserfingerprint = await this.bDetails.getBrowserFingerprint()
+    const response = await fetch("/api/update_product_status", {
+      method: 'POST',
+      body: JSON.stringify({
+        pin: pin,
+        pw:pw,
+        updated_products:listOfConfirmed,
+        user_added: browserfingerprint
+      }),
+      headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'} });    
+    if(response.status != 200){
+      console.warn("Error changing the items");
+      return false;      
+    }
+    return true;
+  }
 }

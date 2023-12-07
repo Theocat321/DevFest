@@ -4,6 +4,7 @@ import { generate } from 'rxjs';
 import { BrowserDetailsService } from '../services/browser-details.service';
 import { FieldValidationService } from '../services/field-validation.service';
 import { BrowserStorageService } from '../services/browser-storage.service';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,7 +21,8 @@ export class CartComponent {
   basketItems!:any; // This will be replaced by a list
 
   constructor(private formBuilder:FormBuilder, private browserDetails:BrowserDetailsService,
-              private validationService:FieldValidationService, private bStorage:BrowserStorageService){}
+              private validationService:FieldValidationService, private bStorage:BrowserStorageService,
+              private bDetails:BrowserDetailsService, private productService:ProductsService){}
 
   // Initalising the forms
   joinForm = this.formBuilder.group({
@@ -163,8 +165,24 @@ export class CartComponent {
     } else{       
       let data =  await response.json();
       this.basketItems = data['data']    
-      console.log(this.basketItems);
-        
+      console.log(this.basketItems); 
     }
+  }
+
+  public async confirmPendingItems(){
+    let browserfingerprint = await this.bDetails.getBrowserFingerprint();
+    //  For each item in the list changed bool to true that user matches browser id
+    let newlyConfirmed = []
+    for(var item of this.basketItems){
+      if(item['user_added'] == browserfingerprint){        
+        item['confirmed_item'] = true;
+        newlyConfirmed.push(item)
+      }
+    }    
+    // Update the DB for the same items
+    this.productService.updatePendingToTrue(newlyConfirmed);
+    // ReLoad the basket
+    this.isOpen = false;
+    this.isOpen = true;
   }
 }

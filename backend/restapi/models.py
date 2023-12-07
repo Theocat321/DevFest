@@ -55,5 +55,3 @@ class BasketItem(models.Model):
     cost= models.FloatField()
     confirmed_item= models.BooleanField()
     user_added= models.CharField(max_length=1000)
-
-##TODO: research into how to store the user id
