@@ -45,7 +45,7 @@
     <div class="active-basket" [class.hidden]="!activeBasket">
         <p>Active Basket: {{basketPin}}</p>
         <div class="cornered-button">
-            <p>Expires in: <app-count-down [dDay]="basketExpire"></app-count-down></p>
+            <p>Expires in: <app-count-down [dDay]="basketExpire" [resetBasket]="leaveBasket"></app-count-down></p>
         </div>
         
         <i class="fa fa-door-open" style="cursor: pointer;" (click)="leaveBasket()"></i>

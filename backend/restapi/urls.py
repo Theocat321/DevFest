@@ -9,5 +9,6 @@ urlpatterns = [
     path('new_basket', views.new_basket),
     path('join_basket', views.join_basket),
     path('add_item_to_basket', views.add_too_basket),
-    path('update_product_status',views.update_pending_items)
+    path('update_product_status',views.update_pending_items),
+    path('order_basket', views.order_items)
 ]

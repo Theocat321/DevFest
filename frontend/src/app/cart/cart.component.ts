@@ -122,6 +122,7 @@ export class CartComponent {
       // Shows user basket 
       this.basketPin = pin
       this.activeBasket = true;
+      this.basketExpire = response_data['end_time']
       // Setting session storage to current basket info
       this.bStorage.setSessionStorage("current_basket_pin",pin.toString())
       this.bStorage.setSessionStorage("current_basket_hash",hashedPW)
@@ -200,5 +201,7 @@ export class CartComponent {
     this.bStorage.removeSessionStorage("current_basket_pin")
     this.bStorage.removeSessionStorage("current_basket_hash")
     this.bStorage.removeSessionStorage("current_basket_end")
+    this.isOpen = false;
+    this.isOpen = true;
   }
 }

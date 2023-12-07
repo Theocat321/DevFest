@@ -114,3 +114,31 @@ def update_pending_items(req):
         return JsonResponse({"":""})
 
     return HttpResponseBadRequest("Pin and Password don't match")
+
+@csrf_exempt
+def order_items(req):
+    '''Function to order the basket items
+    
+    In practise it checks how many items in the cart and returns 200 if enough and deletes from db
+
+    minumum_basket_items can be changed for the minimum number of items
+    '''
+    minimum_basket_items = 25
+    body_unicode = req.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    if 'pin' in body.keys() and 'pw' in body.keys():
+        items = Basket.objects.all().filter(pin=body['pin']).filter(pw=body['pw']).values()# ignore error here
+        # If the item is valid
+        if len(items) == 0:
+            return HttpResponseBadRequest("Pin and Password don't match")
+        basket_items = BasketItem.objects.all().filter(pin = body['pin']).filter(confirmed_item = True).values()
+        total_quantity = 0
+        for item in basket_items:
+            total_quantity += item['quantity']
+        # Delete entry from db
+        Basket.objects.filter(pin=body['pin']).delete()
+
+        if total_quantity >= minimum_basket_items:
+            return JsonResponse({"enough_items":True})
+        return JsonResponse({"enough_items":False})
+    return HttpResponseBadRequest()
