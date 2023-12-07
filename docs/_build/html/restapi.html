@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>restapi package &#8212; DevFest 1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="restapi-package">
+<h1>restapi package<a class="headerlink" href="#restapi-package" title="Permalink to this headline">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="restapi.migrations.html">restapi.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="restapi.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restapi.migrations.html#module-restapi.migrations.0001_initial">restapi.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restapi.migrations.html#module-restapi.migrations.0002_product_co2_saved">restapi.migrations.0002_product_co2_saved module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restapi.migrations.html#module-restapi.migrations.0003_alter_product_co2_saved">restapi.migrations.0003_alter_product_co2_saved module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restapi.migrations.html#module-restapi.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-restapi.admin">
+<span id="restapi-admin-module"></span><h2>restapi.admin module<a class="headerlink" href="#module-restapi.admin" title="Permalink to this headline">¶</a></h2>
+<p>Classes to register Models to Admin dashboard</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="restapi.admin.BasketAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">restapi.admin.</span></span><span class="sig-name descname"><span class="pre">BasketAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.admin.BasketAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<p>Adds the Basket table to the admin page</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.admin.BasketAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('pin',</span> <span class="pre">'host')</span></em><a class="headerlink" href="#restapi.admin.BasketAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="restapi.admin.BasketAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#restapi.admin.BasketAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="restapi.admin.BasketItemsAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">restapi.admin.</span></span><span class="sig-name descname"><span class="pre">BasketItemsAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.admin.BasketItemsAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<p>Adds the BasketItems link table to the admin page</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.admin.BasketItemsAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('product_id',</span> <span class="pre">'quantity')</span></em><a class="headerlink" href="#restapi.admin.BasketItemsAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="restapi.admin.BasketItemsAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#restapi.admin.BasketItemsAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="restapi.admin.ProductAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">restapi.admin.</span></span><span class="sig-name descname"><span class="pre">ProductAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.admin.ProductAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<p>Adds the Product table to the admin page</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.admin.ProductAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('product_id',</span> <span class="pre">'title')</span></em><a class="headerlink" href="#restapi.admin.ProductAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="restapi.admin.ProductAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#restapi.admin.ProductAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-restapi.apps">
+<span id="restapi-apps-module"></span><h2>restapi.apps module<a class="headerlink" href="#module-restapi.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="restapi.apps.RestapiConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">restapi.apps.</span></span><span class="sig-name descname"><span class="pre">RestapiConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.apps.RestapiConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.apps.RestapiConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#restapi.apps.RestapiConfig.default_auto_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.apps.RestapiConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'restapi'</span></em><a class="headerlink" href="#restapi.apps.RestapiConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-restapi.models">
+<span id="restapi-models-module"></span><h2>restapi.models module<a class="headerlink" href="#module-restapi.models" title="Permalink to this headline">¶</a></h2>
+<p>Model definitions for the restapi, handled by django</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="restapi.models.Basket">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">restapi.models.</span></span><span class="sig-name descname"><span class="pre">Basket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Basket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Defining the basket table</p>
+<p>pin: unique 8 digit pin
+host: Host id
+end_date_time: end date time for the basket</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="restapi.models.Basket.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#restapi.models.Basket.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="restapi.models.Basket.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#restapi.models.Basket.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Basket.basketitem_set">
+<span class="sig-name descname"><span class="pre">basketitem_set</span></span><a class="headerlink" href="#restapi.models.Basket.basketitem_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Basket.end_date_time">
+<span class="sig-name descname"><span class="pre">end_date_time</span></span><a class="headerlink" href="#restapi.models.Basket.end_date_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="restapi.models.Basket.get_next_by_end_date_time">
+<span class="sig-name descname"><span class="pre">get_next_by_end_date_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">end_date_time&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Basket.get_next_by_end_date_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="restapi.models.Basket.get_previous_by_end_date_time">
+<span class="sig-name descname"><span class="pre">get_previous_by_end_date_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">end_date_time&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Basket.get_previous_by_end_date_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Basket.host">
+<span class="sig-name descname"><span class="pre">host</span></span><a class="headerlink" href="#restapi.models.Basket.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Basket.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#restapi.models.Basket.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Basket.pin">
+<span class="sig-name descname"><span class="pre">pin</span></span><a class="headerlink" href="#restapi.models.Basket.pin" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Basket.pw">
+<span class="sig-name descname"><span class="pre">pw</span></span><a class="headerlink" href="#restapi.models.Basket.pw" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="restapi.models.BasketItem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">restapi.models.</span></span><span class="sig-name descname"><span class="pre">BasketItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.BasketItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Defining the basketItems link table</p>
+<p>product_id:  Forgien key to Product table
+pin: Forgien key to Basket table
+quantity: Quantity of items in the order
+cost: Price of this quantity of items
+confirmed_item: Whether item is confirmed or pending
+user_added: User id for who added it</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#restapi.models.BasketItem.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#restapi.models.BasketItem.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.confirmed_item">
+<span class="sig-name descname"><span class="pre">confirmed_item</span></span><a class="headerlink" href="#restapi.models.BasketItem.confirmed_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.cost">
+<span class="sig-name descname"><span class="pre">cost</span></span><a class="headerlink" href="#restapi.models.BasketItem.cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#restapi.models.BasketItem.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#restapi.models.BasketItem.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.pin">
+<span class="sig-name descname"><span class="pre">pin</span></span><a class="headerlink" href="#restapi.models.BasketItem.pin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.pin_id">
+<span class="sig-name descname"><span class="pre">pin_id</span></span><a class="headerlink" href="#restapi.models.BasketItem.pin_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.product_id">
+<span class="sig-name descname"><span class="pre">product_id</span></span><a class="headerlink" href="#restapi.models.BasketItem.product_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.product_id_id">
+<span class="sig-name descname"><span class="pre">product_id_id</span></span><a class="headerlink" href="#restapi.models.BasketItem.product_id_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.quantity">
+<span class="sig-name descname"><span class="pre">quantity</span></span><a class="headerlink" href="#restapi.models.BasketItem.quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.BasketItem.user_added">
+<span class="sig-name descname"><span class="pre">user_added</span></span><a class="headerlink" href="#restapi.models.BasketItem.user_added" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="restapi.models.Product">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">restapi.models.</span></span><span class="sig-name descname"><span class="pre">Product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.models.Product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>Defining the product table</p>
+<p>id: Uniquly generated id
+title: Title of the product to be seen on page
+description: Description for the product
+cost_per_unit: cost per unit
+unit_name: what the unit is called on the website
+sourced_country: where the item is sourced
+warehouse_location: where the item is stored
+image_url: url of the image to display</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="restapi.models.Product.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#restapi.models.Product.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="restapi.models.Product.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#restapi.models.Product.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.basketitem_set">
+<span class="sig-name descname"><span class="pre">basketitem_set</span></span><a class="headerlink" href="#restapi.models.Product.basketitem_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.co2_saved">
+<span class="sig-name descname"><span class="pre">co2_saved</span></span><a class="headerlink" href="#restapi.models.Product.co2_saved" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.cost_per_unit">
+<span class="sig-name descname"><span class="pre">cost_per_unit</span></span><a class="headerlink" href="#restapi.models.Product.cost_per_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#restapi.models.Product.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.image_url">
+<span class="sig-name descname"><span class="pre">image_url</span></span><a class="headerlink" href="#restapi.models.Product.image_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#restapi.models.Product.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.product_id">
+<span class="sig-name descname"><span class="pre">product_id</span></span><a class="headerlink" href="#restapi.models.Product.product_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.sourced_country">
+<span class="sig-name descname"><span class="pre">sourced_country</span></span><a class="headerlink" href="#restapi.models.Product.sourced_country" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#restapi.models.Product.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.unit_name">
+<span class="sig-name descname"><span class="pre">unit_name</span></span><a class="headerlink" href="#restapi.models.Product.unit_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.models.Product.warehouse_location">
+<span class="sig-name descname"><span class="pre">warehouse_location</span></span><a class="headerlink" href="#restapi.models.Product.warehouse_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-restapi.serializers">
+<span id="restapi-serializers-module"></span><h2>restapi.serializers module<a class="headerlink" href="#module-restapi.serializers" title="Permalink to this headline">¶</a></h2>
+<p>Serializers for the database tables</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="restapi.serializers.ProductSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">restapi.serializers.</span></span><span class="sig-name descname"><span class="pre">ProductSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.serializers.ProductSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<p>Serializing the objects in the products table</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="restapi.serializers.ProductSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#restapi.serializers.ProductSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Containing the fields for the model</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.serializers.ProductSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['product_id',</span> <span class="pre">'title',</span> <span class="pre">'description',</span> <span class="pre">'cost_per_unit',</span> <span class="pre">'unit_name',</span> <span class="pre">'sourced_country',</span> <span class="pre">'warehouse_location',</span> <span class="pre">'image_url',</span> <span class="pre">'co2_saved']</span></em><a class="headerlink" href="#restapi.serializers.ProductSerializer.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.serializers.ProductSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#restapi.serializers.ProductSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.models.Product" title="restapi.models.Product"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.models.Product</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-restapi.tests">
+<span id="restapi-tests-module"></span><h2>restapi.tests module<a class="headerlink" href="#module-restapi.tests" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-restapi.urls">
+<span id="restapi-urls-module"></span><h2>restapi.urls module<a class="headerlink" href="#module-restapi.urls" title="Permalink to this headline">¶</a></h2>
+<p>Url configuration for the restapi</p>
+</section>
+<section id="module-restapi.views">
+<span id="restapi-views-module"></span><h2>restapi.views module<a class="headerlink" href="#module-restapi.views" title="Permalink to this headline">¶</a></h2>
+<p>Functions that are called when the user visits the root associated</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="restapi.views.GetAllProducts">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">restapi.views.</span></span><span class="sig-name descname"><span class="pre">GetAllProducts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.GetAllProducts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.generics.ListCreateAPIView</span></code></p>
+<p>Using django Rest-api to return all product objects</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.views.GetAllProducts.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'&gt;]</span></em><a class="headerlink" href="#restapi.views.GetAllProducts.permission_classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.views.GetAllProducts.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[&lt;Product:</span> <span class="pre">Product</span> <span class="pre">object</span> <span class="pre">(c4762e89-81fe-4d4c-b4aa-03bf2f4aa683)&gt;,</span> <span class="pre">&lt;Product:</span> <span class="pre">Product</span> <span class="pre">object</span> <span class="pre">(dc428a44-680c-4555-9d0c-ab6501541528)&gt;,</span> <span class="pre">&lt;Product:</span> <span class="pre">Product</span> <span class="pre">object</span> <span class="pre">(e4076f7d-07c9-4bc6-ba64-0399d2a205ea)&gt;,</span> <span class="pre">&lt;Product:</span> <span class="pre">Product</span> <span class="pre">object</span> <span class="pre">(6c4c0e55-194a-475e-b1df-0d93b017a9ab)&gt;,</span> <span class="pre">&lt;Product:</span> <span class="pre">Product</span> <span class="pre">object</span> <span class="pre">(2a45b3c9-571d-49b9-9978-72eb255b89bb)&gt;,</span> <span class="pre">&lt;Product:</span> <span class="pre">Product</span> <span class="pre">object</span> <span class="pre">(a0b844fa-ab3d-4b2a-8848-0a4d0e8ddd9e)&gt;,</span> <span class="pre">&lt;Product:</span> <span class="pre">Product</span> <span class="pre">object</span> <span class="pre">(d256b6e8-084c-4336-85ac-c35499891f3a)&gt;,</span> <span class="pre">&lt;Product:</span> <span class="pre">Product</span> <span class="pre">object</span> <span class="pre">(478fd10c-5a1e-48d4-9a23-34b8e6b8e28c)&gt;,</span> <span class="pre">&lt;Product:</span> <span class="pre">Product</span> <span class="pre">object</span> <span class="pre">(6794d2c6-bd1d-48e4-bc93-7f59eede868d)&gt;,</span> <span class="pre">&lt;Product:</span> <span class="pre">Product</span> <span class="pre">object</span> <span class="pre">(785f9eb8-4419-4573-ac0b-c16d14e19a5f)&gt;]&gt;</span></em><a class="headerlink" href="#restapi.views.GetAllProducts.queryset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="restapi.views.GetAllProducts.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#restapi.views.GetAllProducts.serializer_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#restapi.serializers.ProductSerializer" title="restapi.serializers.ProductSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">restapi.serializers.ProductSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="restapi.views.add_too_basket">
+<span class="sig-prename descclassname"><span class="pre">restapi.views.</span></span><span class="sig-name descname"><span class="pre">add_too_basket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.add_too_basket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adding to the basket from request</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="restapi.views.join_basket">
+<span class="sig-prename descclassname"><span class="pre">restapi.views.</span></span><span class="sig-name descname"><span class="pre">join_basket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.join_basket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks details of current baskets to see if it matches
+Returns 200 and basket contents if request params corrects</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="restapi.views.new_basket">
+<span class="sig-prename descclassname"><span class="pre">restapi.views.</span></span><span class="sig-name descname"><span class="pre">new_basket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.new_basket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new basket from the request body data</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="restapi.views.update_pending_items">
+<span class="sig-prename descclassname"><span class="pre">restapi.views.</span></span><span class="sig-name descname"><span class="pre">update_pending_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.update_pending_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes in a list from the request and updates the items to not be pending</p>
+</dd></dl>
+
+</section>
+<section id="module-restapi">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-restapi" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DevFest</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Adam O'Neill.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/restapi.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
