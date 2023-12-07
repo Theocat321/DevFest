@@ -19,5 +19,6 @@ class ProductSerializer(serializers.ModelSerializer):
             "unit_name",
             "sourced_country",
             "warehouse_location",
-            "image_url"
+            "image_url",
+            "co2_saved"
         ]

@@ -11,6 +11,7 @@
         <p>Key Info:</p>
         <p>Sourced: {{product_info['sourced_country']}}</p>
         <p>Warehouse: {{product_info['warehouse_location']}}</p>
+        <p>Co2 Saved (g): {{product_info['co2_saved'] || "NA"}}</p>
         <p>Pricing:</p>
         <p>£{{product_info['cost_per_unit']}} per {{product_info['unit_name']}}</p>
         <form [formGroup]="quantityForm" (ngSubmit)="onSubmit()">

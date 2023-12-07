@@ -23,6 +23,7 @@ class Product(models.Model):
     unit_name = models.CharField(max_length=100)
     sourced_country = models.CharField(max_length=100)
     warehouse_location = models.CharField(max_length=100)
+    co2_saved = models.FloatField(blank=True,null=True)
     image_url = models.URLField()
 
 class Basket(models.Model):
