@@ -55,7 +55,7 @@
                 <app-cart-item [item]="item"  *ngIf="!item['confirmed_item']" ></app-cart-item>
             </div>
             <!-- Button to checkout the user's pending items -->
-            <button (click)="confirmPendingItems()">Confirm Your Pending Items</button>
+            <button class="cornered-button" (click)="confirmPendingItems()">Confirm Your Pending Items</button>
         </div>
     </div>
 

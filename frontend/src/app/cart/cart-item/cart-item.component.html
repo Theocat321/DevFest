@@ -1,4 +1,4 @@
-<div class="basketItem" >
+<div class="basketItem" [class.my-item]="myItem">
     <a href="/products/{{item['product_info']['product_id']}}">{{item['product_info']['title']}}</a>
     <p>Qt: {{item['quantity']}}</p>
     <p>£{{item['cost']}}</p>
