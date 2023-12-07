@@ -20,6 +20,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { OurMissionPageComponent } from './pages/our-mission/our-mission-page/our-mission-page.component';
 import { CartComponent } from './cart/cart.component';
 import { FingerprintjsProAngularModule } from '@fingerprintjs/fingerprintjs-pro-angular';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FingerprintjsProAngularModule } from '@fingerprintjs/fingerprintjs-pro-
     ProductItemComponent,
     SingleProductPageComponent,
     OurMissionPageComponent,
-    CartComponent
+    CartComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
