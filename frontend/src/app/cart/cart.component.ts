@@ -63,9 +63,8 @@ export class CartComponent {
     // Generate random 8 digit int
     let pin:number = Math.floor(10000000 + Math.random() * 90000000);
 
-    //Todo remove this and change to user input
-    var date = new Date();
-    date.setDate(date.getDate() + 7);
+    // Gets date input by user
+    var date = new Date(this.GenDate.value!);
 
     // Send to server
     const response = await fetch("/api/new_basket", {
@@ -170,7 +169,6 @@ export class CartComponent {
       this.basketItems = data['data']
       this.basketExpire = new Date(data['end_time'])  
       console.log(this.basketItems);
-      
     }
   }
 
