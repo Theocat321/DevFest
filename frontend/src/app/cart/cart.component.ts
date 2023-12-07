@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { generate } from 'rxjs';
 import { BrowserDetailsService } from '../services/browser-details.service';
 import { FieldValidationService } from '../services/field-validation.service';
 import { BrowserStorageService } from '../services/browser-storage.service';
@@ -141,13 +140,17 @@ export class CartComponent {
       // Get session storage
       let session_pin = this.bStorage.getSessionStorage("current_basket_pin")
       let session_hash = this.bStorage.getSessionStorage("current_basket_hash")
+      let basket_end = this.bStorage.getSessionStorage("current_basket_end")
       // If there are details load the basket
-      if(session_hash != null && session_pin != null){
+      if(session_hash != null && session_pin != null && basket_end != null){
         this.basketPin = session_pin
         this.activeBasket = true;
+        this.basketExpire = new Date(basket_end!)  
+        console.log(this.basketExpire);
         this.fetchBasketItems(session_pin,session_hash)
       }else{
         this.activeBasket = false
+        this.basketExpire = new Date()
       }
     }
   }
@@ -163,8 +166,9 @@ export class CartComponent {
     if (response.status != 200){
       console.warn("Error in fetching basket items");
     } else{       
-      let data =  await response.json();
-      this.basketItems = data['data']    
+      let data =  await response.json();      
+      this.basketItems = data['data']
+      this.basketExpire = new Date(data['end_time'])  
       console.log(this.basketItems);
       
     }

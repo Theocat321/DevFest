@@ -30,7 +30,7 @@
                 <label for="dt">
                     Expire Time
                 </label><br>
-                <input class="input-box" id="dt" type="text" formControlName="dt" required [class.validInput]="GenDate.valid" [class.invalidInput]="GenDate.invalid && (GenDate.dirty || GenDate.touched)">
+                <input class="input-box" id="dt" type="datetime-local" formControlName="dt" required [class.validInput]="GenDate.valid" [class.invalidInput]="GenDate.invalid && (GenDate.dirty || GenDate.touched)">
             </div>
             <div>
                 <label for="pw">
@@ -44,12 +44,18 @@
     <!-- Contents for the active basket -->
     <div class="active-basket" [class.hidden]="!activeBasket">
         <p>Active Basket: {{basketPin}}</p>
+        <div class="cornered-button">
+            <p>Expires in: <app-count-down [dDay]="basketExpire"></app-count-down></p>
+        </div>
+        
         <i class="fa fa-door-open" style="cursor: pointer;" (click)="leaveBasket()"></i>
         <div class="basketItemsContainer">
+            <hr>
             <p>Confirmed Items</p>
             <div *ngFor="let item of basketItems; index as i; first as isFirst">
                 <app-cart-item *ngIf="item['confirmed_item']" [item]="item"></app-cart-item>
             </div>
+            <hr>
             <p>Pending Items</p>
             <div *ngFor="let item of basketItems; index as i; first as isFirst">
                 <app-cart-item [item]="item"  *ngIf="!item['confirmed_item']" ></app-cart-item>

@@ -21,7 +21,7 @@ import { OurMissionPageComponent } from './pages/our-mission/our-mission-page/ou
 import { CartComponent } from './cart/cart.component';
 import { FingerprintjsProAngularModule } from '@fingerprintjs/fingerprintjs-pro-angular';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
-
+import { CountDownComponent } from './cart/count-down/count-down.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,8 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     SingleProductPageComponent,
     OurMissionPageComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    CountDownComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +52,7 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
         apiKey: "cdpOFSivlm7ENYkUjoX2",
         region: "eu"
       }
-    })
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
