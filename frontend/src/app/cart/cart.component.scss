@@ -14,11 +14,36 @@ a{
     min-height: 100px;
     width: 250px;
     right: 20px;
-    background-color: var(--third-color);
+    background-color: white;
+    padding: 10px 20px;
+    -webkit-box-shadow: 0.5px 0.5px 1px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0.5px 0.5px 1px 0px rgba(0,0,0,0.75);
+    box-shadow: 0.5px 0.5px 1px 0px rgba(0,0,0,0.75);
+    }
 
-    -webkit-box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.75);
+input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid grey;
+    background-color: rgba(0, 0, 0, 0.012);
+    margin: 5px 1px;
+    padding: 5px;
+}
+
+hr{    
+    border: 0;
+    height: 2px;
+    background-color: black;
+}
+
+.formsection{
+    margin-block:10px;
+}
+
+button{
+    // background-color: var(--third-color);
+    // border: none;#
+    cursor: pointer;
 }
 
 .invalidInput{
