@@ -19,9 +19,12 @@ SECRET_KEY = 'django-insecure-!^7hbj=+cx6&g)!7o=1(c##3&9b4nwtikjpa&z@h*!j5wy)_xt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.10', 'https://devfest.adamoneill.info/' ,'devfest.adamoneill.info','django']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:4200']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:4200','192.168.1.10','https://devfest.adamoneill.info/' ,'devfest.adamoneill.info','https://devfest.adamoneill.info']
+
+STATIC_ROOT = '/static/'
+STATIC_URL = '/static/'
 
 # Application definition
 
