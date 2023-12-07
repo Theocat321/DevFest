@@ -192,4 +192,11 @@ export class CartComponent {
       alert("You have no pending items")
     }
   }
+
+  public leaveBasket(){  
+    this.activeBasket = false;
+    this.bStorage.removeSessionStorage("current_basket_pin")
+    this.bStorage.removeSessionStorage("current_basket_hash")
+    this.bStorage.removeSessionStorage("current_basket_end")
+  }
 }

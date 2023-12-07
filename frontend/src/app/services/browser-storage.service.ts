@@ -14,4 +14,8 @@ export class BrowserStorageService {
   public getSessionStorage(key:string){
     return sessionStorage.getItem(key);
   }
+
+  public removeSessionStorage(key:string){
+    return sessionStorage.removeItem(key)
+  }
 }

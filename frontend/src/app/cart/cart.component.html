@@ -44,6 +44,7 @@
     <!-- Contents for the active basket -->
     <div class="active-basket" [class.hidden]="!activeBasket">
         <p>Active Basket: {{basketPin}}</p>
+        <i class="fa fa-door-open" style="cursor: pointer;" (click)="leaveBasket()"></i>
         <div class="basketItemsContainer">
             <p>Confirmed Items</p>
             <div *ngFor="let item of basketItems; index as i; first as isFirst">
