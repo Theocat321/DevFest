@@ -47,14 +47,14 @@
         <div class="basketItemsContainer">
             <p>Confirmed Items</p>
             <div *ngFor="let item of basketItems; index as i; first as isFirst">
-                <app-cart-item *ngIf="item['confirmed_item']==true" [item]="item"></app-cart-item>
+                <app-cart-item *ngIf="item['confirmed_item']" [item]="item"></app-cart-item>
             </div>
             <p>Pending Items</p>
             <div *ngFor="let item of basketItems; index as i; first as isFirst">
-                <app-cart-item [item]="item"  *ngIf="item['confirmed_item']==false" ></app-cart-item>
+                <app-cart-item [item]="item"  *ngIf="!item['confirmed_item']" ></app-cart-item>
             </div>
             <!-- Button to checkout the user's pending items -->
-            <button (click)="confirmPendingItems()">Confirm Pending Items</button>
+            <button (click)="confirmPendingItems()">Confirm Your Pending Items</button>
         </div>
     </div>
 

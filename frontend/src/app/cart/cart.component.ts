@@ -165,7 +165,8 @@ export class CartComponent {
     } else{       
       let data =  await response.json();
       this.basketItems = data['data']    
-      console.log(this.basketItems); 
+      console.log(this.basketItems);
+      
     }
   }
 
@@ -174,15 +175,21 @@ export class CartComponent {
     //  For each item in the list changed bool to true that user matches browser id
     let newlyConfirmed = []
     for(var item of this.basketItems){
-      if(item['user_added'] == browserfingerprint){        
+      if(item['user_added'] == browserfingerprint && item['confirmed_item']==false){        
         item['confirmed_item'] = true;
         newlyConfirmed.push(item)
       }
     }    
-    // Update the DB for the same items
-    this.productService.updatePendingToTrue(newlyConfirmed);
-    // ReLoad the basket
-    this.isOpen = false;
-    this.isOpen = true;
+    if(newlyConfirmed.length>0){
+      // Update the DB for the same items
+      this.productService.updatePendingToTrue(newlyConfirmed);
+      // ReLoad the basket
+      this.isOpen = false;
+      this.isOpen = true;
+      // Inform user complete
+      alert("Payment Accepted\n Your pending items have been confirmed")
+    }else{
+      alert("You have no pending items")
+    }
   }
 }
