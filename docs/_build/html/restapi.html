@@ -502,6 +502,14 @@ Returns 200 and basket contents if request params corrects</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="restapi.views.order_items">
+<span class="sig-prename descclassname"><span class="pre">restapi.views.</span></span><span class="sig-name descname"><span class="pre">order_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.order_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to order the basket items</p>
+<p>In practise it checks how many items in the cart and returns 200 if enough and deletes from db</p>
+<p>minumum_basket_items can be changed for the minimum number of items</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="restapi.views.update_pending_items">
 <span class="sig-prename descclassname"><span class="pre">restapi.views.</span></span><span class="sig-name descname"><span class="pre">update_pending_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#restapi.views.update_pending_items" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes in a list from the request and updates the items to not be pending</p>
