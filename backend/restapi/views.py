@@ -53,16 +53,20 @@ def add_too_basket(req):
 @csrf_exempt
 def new_basket(req):
     '''Creates a new basket from the request body data'''
-    #Todo: error handling
-    body_unicode = req.body.decode('utf-8')
-    body = json.loads(body_unicode)
-    # todo: check values are correct
-    basket = Basket(pin = body['pin'], 
-                    host = body['browserfingerprint'],
-                    pw = body['pw'],
-                    end_date_time = body['endtime'])
-    basket.save()
-    return JsonResponse({'value':'success'})
+    if 'pin' in body.keys() and 'pw' in body.keys():
+        try:
+            body_unicode = req.body.decode('utf-8')
+            body = json.loads(body_unicode)
+            basket = Basket(pin = body['pin'], 
+                            host = body['browserfingerprint'],
+                            pw = body['pw'],
+                            end_date_time = body['endtime'])
+            basket.save()
+            return JsonResponse({'value':'success'})
+        except:
+            return HttpResponseBadRequest()
+    else:
+        return HttpResponseBadRequest()
 
 @csrf_exempt
 def join_basket(req):
